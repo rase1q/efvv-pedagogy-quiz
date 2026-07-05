@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Інтерактивний тест ЄФВВ з педагогіки, психології та вчених." />
+  <title>ЄФВВ Quiz — педагогіка та вчені</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="hero">
+    <nav class="nav container">
+      <a class="brand" href="#">
+        <span class="brand-mark">Є</span>
+        <span>ЄФВВ Quiz</span>
+      </a>
+      <div class="nav-actions">
+        <button class="ghost-btn" id="themeToggle" type="button" aria-label="Перемкнути тему">🌙</button>
+        <a class="ghost-btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </nav>
+
+    <section class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Підготовка до ЄФВВ</p>
+        <h1>Тест з акцентом на педагогіку та вчених</h1>
+        <p class="lead">Тренуй поняття, дидактику, виховання та ключові ідеї Коменського, Сковороди, Ушинського, Монтессорі, Сухомлинського, Макаренка, Фройда, Юнга й інших.</p>
+        <div class="hero-stats" aria-label="Статистика тесту">
+          <div><strong id="totalQuestions">0</strong><span>питань</span></div>
+          <div><strong>7</strong><span>категорій</span></div>
+          <div><strong>∞</strong><span>спроб</span></div>
+        </div>
+      </div>
+      <div class="start-card" id="startCard">
+        <div class="card-header">
+          <span class="pill">🎯 Режим тесту</span>
+          <span class="small-muted" id="bestScore">Найкращий результат: —</span>
+        </div>
+
+        <label class="field-label" for="categorySelect">Категорія</label>
+        <select id="categorySelect" class="select"></select>
+
+        <label class="field-label" for="questionCount">Кількість питань</label>
+        <select id="questionCount" class="select">
+          <option value="15">15 швидких</option>
+          <option value="30" selected>30 оптимально</option>
+          <option value="50">50 інтенсив</option>
+          <option value="all">Усі питання</option>
+        </select>
+
+        <div class="switch-row">
+          <label class="switch">
+            <input type="checkbox" id="shuffleToggle" checked>
+            <span></span>
+          </label>
+          <span>Перемішувати питання</span>
+        </div>
+
+        <button class="primary-btn" id="startBtn" type="button">Почати тест</button>
+        <button class="secondary-btn" id="mistakesBtn" type="button">Повторити мої помилки</button>
+      </div>
+    </section>
+  </header>
+
+  <main class="container app-shell">
+    <section class="quiz-card hidden" id="quizCard" aria-live="polite">
+      <div class="quiz-top">
+        <div>
+          <span class="pill" id="questionCategory">Категорія</span>
+          <h2 id="questionText">Питання</h2>
+        </div>
+        <div class="counter"><span id="currentNumber">1</span>/<span id="quizTotal">1</span></div>
+      </div>
+
+      <div class="progress" aria-hidden="true"><div id="progressBar"></div></div>
+
+      <div class="answers" id="answers"></div>
+
+      <div class="explanation hidden" id="explanationBox">
+        <strong id="resultLabel"></strong>
+        <p id="explanationText"></p>
+      </div>
+
+      <div class="quiz-actions">
+        <button class="secondary-btn" id="exitBtn" type="button">Вийти</button>
+        <button class="primary-btn" id="nextBtn" type="button" disabled>Далі</button>
+      </div>
+    </section>
+
+    <section class="result-card hidden" id="resultCard">
+      <span class="pill">Результат</span>
+      <h2 id="resultTitle">Тест завершено</h2>
+      <p class="result-score" id="resultScore">0%</p>
+      <p class="result-message" id="resultMessage"></p>
+      <div class="result-grid">
+        <div><strong id="correctCount">0</strong><span>правильно</span></div>
+        <div><strong id="wrongCount">0</strong><span>помилок</span></div>
+        <div><strong id="timeSpent">0:00</strong><span>час</span></div>
+      </div>
+      <div class="review" id="reviewBox"></div>
+      <div class="quiz-actions center">
+        <button class="secondary-btn" id="restartBtn" type="button">На головну</button>
+        <button class="primary-btn" id="retryWrongBtn" type="button">Повторити помилки</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p>Зроблено як статичний GitHub Pages проєкт: HTML + CSS + JavaScript, без серверу та бази даних.</p>
+  </footer>
+
+  <script src="assets/js/questions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
